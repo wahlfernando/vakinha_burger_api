@@ -1,0 +1,3 @@
+class EmailAlreadyRegiter implements Exception {
+
+}
