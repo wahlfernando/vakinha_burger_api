@@ -11,7 +11,7 @@ Router _$AuthControllerRouter(AuthController service) {
   router.add(
     'POST',
     r'/register',
-    service.find,
+    service.register,
   );
   return router;
 }

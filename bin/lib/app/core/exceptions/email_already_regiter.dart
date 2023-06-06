@@ -1,3 +1,3 @@
-class EmailAlreadyRegiter implements Exception {
+class EmailAlreadyRegistered implements Exception {
 
 }

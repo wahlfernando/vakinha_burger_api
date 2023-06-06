@@ -12,6 +12,7 @@ class UserRepository {
     MySqlConnection? conn;
     try {
       conn = await Database().openConnection();
+      await Future.delayed(Duration(seconds: 1));
       final isUserRegister = await conn
           .query('select * from usuario where email = ?', [user.email]);
 
@@ -26,11 +27,11 @@ class UserRepository {
           CriptyHelper.generateSha256Hash(user.password),
         ]);
       } else {
-        throw EmailAlreadyRegiter();
+        throw EmailAlreadyRegistered();
       }
     } on MySqlException catch (e, s) {
-      log(e.toString());
-      log(s.toString());
+      log('Erro: ${e.toString()}');
+      log('Stack: ${s.toString()}');
       throw Exception();
     } finally {
       await conn?.close();
