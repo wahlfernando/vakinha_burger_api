@@ -13,6 +13,7 @@ class UserRepository {
     try {
       conn = await Database().openConnection();
       await Future.delayed(Duration(seconds: 1));
+      log('${user.id}');
       final isUserRegister = await conn
           .query('select * from usuario where email = ?', [user.email]);
 
